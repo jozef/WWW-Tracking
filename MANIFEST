@@ -1,0 +1,15 @@
+Build.PL
+Changes
+lib/WWW/Tracking.pm
+lib/WWW/Tracking/Data.pm
+lib/WWW/Tracking/Data/Plugin/Catalyst.pm
+lib/WWW/Tracking/Data/Plugin/GoogleAnalytics.pm
+lib/WWW/Tracking/Data/Plugin/Headers.pm
+MANIFEST			This list of files
+t/01_WWW-Tracking.t
+t/02_WWW-Tracking-Data.t
+t/03_WWW-Tracking-Data-Plugin-Headers.t
+t/04_WWW-Tracking-Data-Plugin-GoogleAnalytics.t
+README
+META.yml
+META.json
