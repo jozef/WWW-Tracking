@@ -23,13 +23,6 @@ sub _map2(&@){
     my $code = shift; 
     map $code->( shift, shift ), 0 .. $#_/2 
 }
-sub _grep2(&@){ 
-    my $code = shift; 
-    map{ 
-        my @pair = (shift,shift); 
-        $code->( @pair ) ? @pair : ()
-    } 0 .. $#_/2 
-}
 
 sub _utm_url {
 	my $class         = shift;
@@ -47,9 +40,9 @@ sub _utm_url {
 			'',
 			_map2 {
 				my $prop = $_[1];
-				'&'.$_[0].'='.uri_escape($tracking_data->$prop)
+				my $value = $tracking_data->$prop;
+				(defined $value ? '&'.$_[0].'='.uri_escape($tracking_data->$prop) : ())
 			}
-			_grep2 { defined $_[1] }
 			@URL_PAIRS
 		)
 	;
