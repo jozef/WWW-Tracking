@@ -33,7 +33,7 @@ sub _utm_url {
 	return
 		$UTM_GIF_LOCATION
 		.'?'
-		.'&utmac='.$tracker_account                    # Account String. Appears on all requests.
+		.'utmac='.$tracker_account                     # Account String. Appears on all requests.
 		.'&utmn='.$class->_uniq_gif_id                 # Unique ID generated for each GIF request to prevent caching of the GIF image. 
 		.'&utmcc=__utma%3D999.999.999.999.999.1%3B'    # Cookie values. This request parameter sends all the cookies requested from the page.
 		.join(
@@ -68,6 +68,7 @@ sub make_tracking_request_ga {
 	my $self = shift;
 	
 	my $ua = LWP::UserAgent->new;
+	$ua->default_header('Accepts-Language' => $self->browser_language);
 	$ua->agent($self->user_agent);
 	my $ga_output = $ua->get($self->as_ga);
 
