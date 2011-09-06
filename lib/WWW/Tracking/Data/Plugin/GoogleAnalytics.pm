@@ -5,6 +5,7 @@ use URI::Escape 'uri_escape';
 use LWP::UserAgent;
 
 our $UTM_GIF_LOCATION = 'http://www.google-analytics.com/__utm.gif';
+our $GA_VERSION = '4.4sp';
 our @URL_PAIRS = (
 	'utmhn'  => 'hostname',              # Host Name, which is a URL-encoded string.
 	'utmp'   => 'request_uri',           # Page request of the current page. 
@@ -33,7 +34,8 @@ sub _utm_url {
 	return
 		$UTM_GIF_LOCATION
 		.'?'
-		.'utmac='.$tracker_account                     # Account String. Appears on all requests.
+		.'utmwv='.$GA_VERSION
+		.'&utmac='.$tracker_account                    # Account String. Appears on all requests.
 		.'&utmn='.$class->_uniq_gif_id                 # Unique ID generated for each GIF request to prevent caching of the GIF image. 
 		.'&utmcc=__utma%3D999.999.999.999.999.1%3B'    # Cookie values. This request parameter sends all the cookies requested from the page.
 		.join(
