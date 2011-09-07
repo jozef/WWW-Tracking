@@ -1,5 +1,8 @@
 package WWW::Tracking::Data::Plugin::GoogleAnalytics;
 
+use strict;
+use warnings;
+
 use WWW::Tracking::Data;
 use URI::Escape 'uri_escape';
 use LWP::UserAgent;
@@ -14,7 +17,7 @@ our @URL_PAIRS = (
 	'utmip'  => 'remote_ip',             #
 	'utmcs'  => 'encoding',              # Language encoding for the browser. Some browsers don't set this, in which case it is set to "-"
 	'utmul'  => 'browser_language',      # Browser language.
-	'utmje'  => 'java',                  # Indicates if browser is Java-enabled. 1 is true.
+	'utmje'  => 'java_version',          # Indicates if browser is Java-enabled. 1 is true.
 	'utmsc'  => 'screen_color_depth',    # Screen color depth
 	'utmsr'  => 'screen_resolution',     # Screen resolution
 	'utmfl'  => 'flash_version',         # Flash Version
@@ -78,6 +81,14 @@ sub remote_ip {
 	return unless $ip;
 	return unless $ip =~ m/^( (?: \d{1,3} [.] ){3} ) \d{1,3} $/xms;    # capture only first 3 numbers from ip
 	return $1.'0';
+}
+
+sub java_version {
+	my $self = shift;
+	my $java_version = $self->SUPER::java_version(@_);
+	
+	return unless defined $java_version;
+	return ($java_version ? 1 : 0);
 }
 
 1;

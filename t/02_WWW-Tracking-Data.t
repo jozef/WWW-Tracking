@@ -23,7 +23,7 @@ AS_HASH_FROM_HASH: {
 		referer            => 'http://search/?q=example',
 		browser_language   => 'de-AT',
 		timestamp          => 1314712280,
-		java               => 0,
+		java_version       => '1.5',
 		encoding           => 'UTF-8',
 		screen_color_depth => '24',
 		screen_resolution  => '1024x768',

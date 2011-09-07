@@ -17,12 +17,21 @@ our @TRACKING_PROPERTIES = qw(
 	referer
 	browser_language
 	timestamp
-	java
 	encoding
 	screen_color_depth
 	screen_resolution
-	flash_version
 	visitor_id
+
+	pdf_support
+	cookie_support
+
+	flash_version
+	java_version
+	quicktime_version
+	realplayer_version
+	mediaplayer_version
+	gears_version
+	silverlight_version
 );
 
 __PACKAGE__->mk_accessors(
@@ -77,6 +86,11 @@ sub new_visitor_id {
 	return $self;
 }
 
+sub full_request_url {
+	my $self = shift;
+	return 'http://'.$self->hostname.$self->request_uri;
+}
+
 1;
 
 
@@ -96,7 +110,7 @@ WWW::Tracking::Data - web tracking data object
 		referer            => 'http://search/?q=example',
 		browser_language   => 'de-AT',
 		timestamp          => 1314712280,
-		java               => 0,
+		java_version       => undef,
 		encoding           => 'UTF-8',
 		screen_color_depth => '24'
 		screen_resolution  => '1024x768',
@@ -119,12 +133,21 @@ See C<WWW::Tracking::Data::Plugin::*> namespace.
 	referer
 	browser_language
 	timestamp
-	java
 	encoding
 	screen_color_depth
 	screen_resolution
-	flash_version
 	visitor_id
+
+	pdf_support
+	cookie_support
+
+	flash_version
+	java_version
+	quicktime_version
+	realplayer_version
+	mediaplayer_version
+	gears_version
+	silverlight_version
 
 =head1 METHODS
 
@@ -150,6 +173,10 @@ via plugins.
 
 Will generate new random visitor id and store it in C<visitor_id> object
 property.
+
+=head2 full_request_url()
+
+Returns string with request URL that includes protocol, hostname and path.
 
 =head1 SEE ALSO
 

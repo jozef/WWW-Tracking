@@ -29,6 +29,7 @@ add_stopwords(qw(
 	Piwik
 	plugins
 	URL
+	hostname
 	deserialization
 ));
 all_pod_files_spelling_ok();

@@ -14,6 +14,7 @@ use WWW::Tracking::Data;
 __PACKAGE__->mk_accessors(qw{
 	tracker_account
 	tracker_type
+	tracker_url
 	data
 });
 
