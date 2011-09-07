@@ -96,7 +96,7 @@ sub make_tracking_request_ga {
 	my $self = shift;
 	
 	my $ua = LWP::UserAgent->new;
-	$ua->default_header('Accepts-Language' => $self->browser_language);
+	$ua->default_header('Accept-Language' => $self->browser_language);
 	$ua->agent($self->user_agent);
 	my $ga_output = $ua->get($self->as_ga);
 
