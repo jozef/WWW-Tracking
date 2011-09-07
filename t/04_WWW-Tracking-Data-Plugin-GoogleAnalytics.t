@@ -28,7 +28,7 @@ AS_GA_BASIC_PARAMS: {
 		'tracker_account' => 'MO-9226801-5',
 		'tracker_type'    => 'ga'
 	)->from('hash' => \%initial_data);
-	is($wt->data->as_ga, 'http://www.google-analytics.com/__utm.gif?utmwv=4.4sp&utmac=MO-9226801-5&utmn=115935801&utmcc=__utma%3D999.999.999.999.999.1%3B&utmhn=test.kutej.net&utmp=%2Fpath%2Fto%2Fthere&utmr=http%3A%2F%2Fjozef.kutej.net%2F%3Fq%3Dreferer&utmvid=202cb942ac50075c964b07152d234b70&utmip=109.72.0.72', 'as_ga()');
+	is($wt->data->as_ga, 'http://www.google-analytics.com/__utm.gif?utmwv=4.4sp&utmac=MO-9226801-5&utmn=115935801&utmcc=__utma%3D999.999.999.999.999.1%3B&utmhn=test.kutej.net&utmp=%2Fpath%2Fto%2Fthere&utmr=http%3A%2F%2Fjozef.kutej.net%2F%3Fq%3Dreferer&utmvid=202cb942ac50075c964b07152d234b70&utmip=109.72.0.0', 'as_ga()');
 	
 	eval { $wt->make_tracking_request };
 	SKIP: {
@@ -48,7 +48,7 @@ AS_GA_MAKE_TRACKING_REQUEST: {
 		remote_ip          => '109.72.0.72',
 		user_agent         => 'Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20100101 Firefox/5.0 Iceweasel/5.0',
 		referer            => 'http://jozef.kutej.net/?q=referer',
-		browser_language   => 'de-AT',
+		browser_language   => 'de-AT,en;q=0.8',
 		java               => 0,
 		encoding           => 'UTF-8',
 		screen_color_depth => '24',
@@ -60,7 +60,7 @@ AS_GA_MAKE_TRACKING_REQUEST: {
 		'tracker_account' => 'MO-9226801-5',
 		'tracker_type'    => 'ga'
 	)->from('hash' => \%initial_data);
-	is($wt->data->as_ga, 'http://www.google-analytics.com/__utm.gif?utmwv=4.4sp&utmac=MO-9226801-5&utmn=115935801&utmcc=__utma%3D999.999.999.999.999.1%3B&utmhn=test.kutej.net&utmp=%2Fpath%2Fto%2Fthere&utmr=http%3A%2F%2Fjozef.kutej.net%2F%3Fq%3Dreferer&utmvid=202cb962ac59075b964b07152d234b70&utmip=109.72.0.72&utmcs=UTF-8&utmul=de-AT&utmje=0&utmsc=24&utmsr=1024x768&utmfl=9.0', 'as_ga()');
+	is($wt->data->as_ga, 'http://www.google-analytics.com/__utm.gif?utmwv=4.4sp&utmac=MO-9226801-5&utmn=115935801&utmcc=__utma%3D999.999.999.999.999.1%3B&utmhn=test.kutej.net&utmp=%2Fpath%2Fto%2Fthere&utmr=http%3A%2F%2Fjozef.kutej.net%2F%3Fq%3Dreferer&utmvid=202cb962ac59075b964b07152d234b70&utmip=109.72.0.0&utmcs=UTF-8&utmul=de-AT&utmje=0&utmsc=24&utmsr=1024x768&utmfl=9.0', 'as_ga()');
 	
 	eval { $wt->make_tracking_request };
 	SKIP: {

@@ -29,8 +29,9 @@ sub _utm_url {
 	my $class         = shift;
 	my $tracking_data = shift;
 	
-	my $tracker_account = $tracking_data->_tracking->tracker_account;
-	
+	my $ga_tracking_data = bless $tracking_data, 'WWW::Tracking::Data::Plugin::GoogleAnalytics::DataFilter';
+	my $tracker_account = $ga_tracking_data->_tracking->tracker_account;
+
 	return
 		$UTM_GIF_LOCATION
 		.'?'
@@ -42,8 +43,8 @@ sub _utm_url {
 			'',
 			_map2 {
 				my $prop = $_[1];
-				my $value = $tracking_data->$prop;
-				(defined $value ? '&'.$_[0].'='.uri_escape($tracking_data->$prop) : ())
+				my $value = $ga_tracking_data->$prop;
+				(defined $value ? '&'.$_[0].'='.uri_escape($ga_tracking_data->$prop) : ())
 			}
 			@URL_PAIRS
 		)
@@ -52,6 +53,31 @@ sub _utm_url {
 
 sub _uniq_gif_id {
 	return int(rand(0x7fffffff));
+}
+
+1;
+
+package WWW::Tracking::Data::Plugin::GoogleAnalytics::DataFilter;
+
+use base 'WWW::Tracking::Data';
+
+sub browser_language {
+	my $self = shift;
+	my $lang = $self->SUPER::browser_language(@_);
+	
+	return unless $lang;
+	$lang =~ s/^( [a-zA-Z\-]{2,5} ) .* $/$1/xms;    # return only first language that can be either two letter or "en-GB" format
+	return unless $lang;
+	return $lang;
+}
+
+sub remote_ip {
+	my $self = shift;
+	my $ip = $self->SUPER::remote_ip(@_);
+	
+	return unless $ip;
+	return unless $ip =~ m/^( (?: \d{1,3} [.] ){3} ) \d{1,3} $/xms;    # capture only first 3 numbers from ip
+	return $1.'0';
 }
 
 1;
