@@ -8,6 +8,7 @@ our $VERSION = '0.01';
 use base 'Class::Accessor::Fast';
 
 use Digest::MD5 qw(md5_hex);
+use Math::BaseCnv 'dec';
 
 our @TRACKING_PROPERTIES = qw(
 	hostname
@@ -81,7 +82,7 @@ sub new_visitor_id {
 	return $gen_new_visitor_id->()
 		if $gen_new_visitor_id;
 	
-	$self->visitor_id(md5_hex($self->user_agent.int(rand(0x7fffffff))));
+	$self->visitor_id(substr(dec(md5_hex($self->user_agent.int(rand(0x7fffffff)))),0,32));
 	
 	return $self;
 }

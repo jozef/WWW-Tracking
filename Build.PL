@@ -17,6 +17,7 @@ my $builder = Module::Build->new(
         'LWP::UserAgent' => 0,
         'Scalar::Util'   => 0,
         'URI::Escape'    => 0,
+        'Math::BaseCnv'  => 0,
     },
     build_requires => {
         'Test::More'        => 0,

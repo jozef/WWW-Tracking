@@ -41,7 +41,7 @@ sub _utm_url {
 		.'utmwv='.$GA_VERSION
 		.'&utmac='.$tracker_account                    # Account String. Appears on all requests.
 		.'&utmn='.$class->_uniq_gif_id                 # Unique ID generated for each GIF request to prevent caching of the GIF image. 
-		.'&utmcc=__utma%3D999.999.999.999.999.1%3B'    # Cookie values. This request parameter sends all the cookies requested from the page.
+		.'&utmcc=__utma%3D999.'.substr($ga_tracking_data->visitor_id,0,16).'.999.999.999.1%3B'    # Cookie values. This request parameter sends all the cookies requested from the page.
 		.join(
 			'',
 			_map2 {
