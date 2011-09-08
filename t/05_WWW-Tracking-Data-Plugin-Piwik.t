@@ -22,7 +22,7 @@ AS_PIWIK_REQUEST: {
 		remote_ip           => '109.72.0.72',
 		user_agent          => 'Mozilla/5.0 (X11; Linux i686; rv:5.0) Gecko/20100101 Firefox/5.0 Iceweasel/5.0',
 		referer             => 'http://jozef.kutej.net/?q=referer',
-		visitor_id          => substr('202cb942ac50075c964b07152d234b70',0,16),
+		visitor_id          => '202cb942ac50075c964b07152d234b70',
 		timestamp           => 1315403315,
 		screen_resolution   => '1024x768',
 		flash_version       => '9.0',

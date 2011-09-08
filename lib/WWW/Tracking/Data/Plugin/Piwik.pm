@@ -182,6 +182,14 @@ sub silverlight_version {
 	return ($silverlight_version ? 1 : 0);
 }
 
+sub visitor_id {
+	my $self = shift;
+	my $visitor_id = $self->SUPER::visitor_id(@_);
+	
+	return unless defined $visitor_id;
+	return substr($visitor_id,0,16);
+}
+
 1;
 
 package WWW::Tracking::Data;
