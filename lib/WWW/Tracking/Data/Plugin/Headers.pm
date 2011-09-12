@@ -1,5 +1,10 @@
 package WWW::Tracking::Data::Plugin::Headers;
 
+use strict;
+use warnings;
+
+our $VERSION = '0.02';
+
 use WWW::Tracking::Data;
 
 1;

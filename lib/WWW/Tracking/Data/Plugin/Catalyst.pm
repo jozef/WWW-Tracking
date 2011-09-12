@@ -1,5 +1,7 @@
 package WWW::Tracking::Data::Plugin::Catalyst;
 
+our $VERSION = '0.02';
+
 1;
 
 package WWW::Tracking::Data;

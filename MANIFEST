@@ -5,11 +5,17 @@ lib/WWW/Tracking/Data.pm
 lib/WWW/Tracking/Data/Plugin/Catalyst.pm
 lib/WWW/Tracking/Data/Plugin/GoogleAnalytics.pm
 lib/WWW/Tracking/Data/Plugin/Headers.pm
+lib/WWW/Tracking/Data/Plugin/Piwik.pm
 MANIFEST			This list of files
+META.json
+META.yml
+README
 t/01_WWW-Tracking.t
 t/02_WWW-Tracking-Data.t
 t/03_WWW-Tracking-Data-Plugin-Headers.t
 t/04_WWW-Tracking-Data-Plugin-GoogleAnalytics.t
-README
-META.yml
-META.json
+t/05_WWW-Tracking-Data-Plugin-Piwik.t
+t/distribution.t
+t/pod-coverage.t
+t/pod-spell.t
+t/pod.t

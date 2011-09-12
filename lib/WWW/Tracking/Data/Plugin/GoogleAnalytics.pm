@@ -3,6 +3,8 @@ package WWW::Tracking::Data::Plugin::GoogleAnalytics;
 use strict;
 use warnings;
 
+our $VERSION = '0.02';
+
 use WWW::Tracking::Data;
 use URI::Escape 'uri_escape';
 use LWP::UserAgent;
