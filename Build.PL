@@ -8,6 +8,7 @@ my $builder = Module::Build->new(
     license             => 'perl',
     dist_author         => 'Jozef Kutej <jkutej@cpan.org>',
     dist_version_from   => 'lib/WWW/Tracking.pm',
+    configure_requires  => { 'Module::Build' => 0.36 },
     requires => {
         'Class::Accessor::Fast' => 0,
         'Carp::Clan'     => 0,
