@@ -26,7 +26,6 @@ my $builder = Module::Build->new(
     },
     add_to_cleanup => [ 'WWW-Tracking-*' ],
     create_readme  => 1,
-    sign           => 1,
     meta_merge => {
         resources => {
             repository => 'http://github.com/jozef/WWW-Tracking',
