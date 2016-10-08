@@ -1,5 +1,8 @@
 Revision history for WWW-Tracking
 
+0.04   8 October 2016
+    - add requires List::MoreUtils
+
 0.03   7 October 2016
     - move author tests to xt/
 
