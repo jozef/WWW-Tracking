@@ -3,7 +3,7 @@ package WWW::Tracking::Data::Plugin::GoogleAnalytics;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
 use WWW::Tracking::Data;
 use URI::Escape 'uri_escape';

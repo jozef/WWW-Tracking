@@ -3,7 +3,7 @@ package WWW::Tracking::Data;
 use warnings;
 use strict;
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
 use base 'Class::Accessor::Fast';
 
