@@ -20,6 +20,10 @@ my $builder = Module::Build->new(
         'URI::Escape'           => 0,
         'Math::BaseCnv'         => 0,
         'List::MoreUtils'       => 0,
+        'DateTime'              => 0,
+        'URI'                   => 0,
+        'URI::Escape'           => 0,
+        'URI::QueryParam'       => 0,
     },
     build_requires => {
         'Test::More'        => 0,
