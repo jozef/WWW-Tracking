@@ -211,4 +211,10 @@ L<http://piwik.org/docs/tracking-api/>
 
 Jozef Kutej
 
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2017 Jozef Kutej, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+
 =cut
